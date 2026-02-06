@@ -38,6 +38,8 @@ const main = async () => {
    *
    * Create a new Transaction instance from the @mysten/sui/transactions module.
    */
+import { Transaction } from '@mysten/sui/transactions';
+const tx = new Transaction();
 
   /**
    * Task 2:
@@ -51,6 +53,11 @@ const main = async () => {
    * any arguments or type arguments.
    */
 
+const newObject = tx.moveCall({
+target: `${PACKAGE_ID}::sui_nft::new`,
+  
+});
+
   /**
    * Task 3:
    *
@@ -60,7 +67,7 @@ const main = async () => {
    *
    * HINT: Use `suiAddress`` to transfer the object to your address.
    */
-
+tx.transferObjects([NewObject], tx.suiAddress);
 
   /**
    * Task 4:
